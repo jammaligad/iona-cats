@@ -1,11 +1,12 @@
-import { Outlet } from "react-router-dom";
+import CatLoader from "../components/CatLoader";
 
 import "./index.css";
 
 function App() {
   return (
     <main>
-      This is the `/` home page <Outlet />
+      This is the `/` home page
+      <CatLoader />
     </main>
   );
 }
