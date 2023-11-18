@@ -5,7 +5,6 @@ import "./index.css";
 function App() {
   return (
     <main>
-      This is the `/` home page
       <CatLoader />
     </main>
   );
