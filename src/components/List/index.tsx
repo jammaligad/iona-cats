@@ -11,10 +11,28 @@ const List = ({ items, placeholder }) => {
     setActiveSearchValue(searchValue);
 
     const filteredListItems = items.filter(({ name }) => {
-      name.toLowerCase().includes(searchValue.toLowerCase());
+      return name.toLowerCase().includes(searchValue.toLowerCase());
     });
 
     setFilteredListItems(filteredListItems);
+  };
+
+  const renderListItems = () => {
+    let listItems = [...items];
+
+    if (activeSearchValue) {
+      listItems = [...filteredListItems];
+    }
+
+    return listItems.map(({ id, name, image }) => {
+      const listItemProps = {
+        id,
+        name,
+        image,
+      };
+
+      return <ListItem key={id} {...listItemProps} />;
+    });
   };
 
   return (
@@ -26,16 +44,7 @@ const List = ({ items, placeholder }) => {
         placeholder={placeholder}
       />
       <div className="w-full overflow-y-auto h-full space-y-1">
-        {filteredListItems &&
-          filteredListItems.map(({ id, name, image }) => {
-            const listItemProps = {
-              id,
-              name,
-              image,
-            };
-
-            return <ListItem key={id} {...listItemProps} />;
-          })}
+        {items && renderListItems()}
       </div>
     </div>
   );
