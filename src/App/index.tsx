@@ -1,12 +1,29 @@
-import CatLoader from "../components/CatLoader";
+import { Outlet } from "react-router-dom";
+
+import SideBar from "../components/SideBar";
+
+import useAxios from "../common/hooks/useAxios";
+
+import { BreedsContext } from "../store/cat-breeds-context";
+
+import { BREEDS_ENDPOINT } from "../common/endpoints";
 
 import "./index.css";
 
 function App() {
+  const { data, error, isLoading } = useAxios(
+    BREEDS_ENDPOINT.url,
+    BREEDS_ENDPOINT.method
+  );
+
   return (
-    <main>
-      <CatLoader />
-    </main>
+    <BreedsContext.Provider value={{ isLoading, catBreeds: data || [] }}>
+      <main className="app-container">
+        <SideBar />
+
+        <Outlet />
+      </main>
+    </BreedsContext.Provider>
   );
 }
 

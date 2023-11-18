@@ -1,0 +1,7 @@
+nav.active {
+  @apply w-60;
+}
+
+div.sidebar-content.active, .title.active {
+  @apply opacity-100;
+}
