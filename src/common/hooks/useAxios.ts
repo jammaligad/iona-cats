@@ -9,7 +9,7 @@ const useAxios = (
   method: RequestMethods,
   payload?: Record<string, any>
 ) => {
-  const [data, setData] = useState();
+  const [data, setData] = useState<Record<string, any>[]>([]);
   const [error, setError] = useState<string>();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -40,7 +40,8 @@ const useAxios = (
     };
 
     handleRequest();
-  }, [url, method, payload]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [url, method, JSON.stringify(payload)]);
 
   return {
     data,

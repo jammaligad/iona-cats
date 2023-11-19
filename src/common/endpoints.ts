@@ -7,5 +7,5 @@ export const BREEDS_ENDPOINT = {
 
 export const IMAGES_ENDPOINT = {
   url: "/api/cats/images",
-  method: RequestMethods.GET,
+  method: RequestMethods.POST,
 };

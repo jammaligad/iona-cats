@@ -29,7 +29,7 @@ export function catsApi(app) {
     }
   });
 
-  app.get("/api/cats/images", async (req, res) => {
+  app.post("/api/cats/images", async (req, res) => {
     const { breedID, limit } = req.body;
 
     try {
