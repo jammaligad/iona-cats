@@ -3,22 +3,26 @@ import cn from "classnames";
 
 import { ChevronUp } from "react-feather";
 
-import { BreedData } from "../types";
-
 interface Props {
-  items: BreedData[];
   isListOpen: boolean;
   handleClick: () => void;
+  selectedValue?: string;
   placeholder?: string;
 }
 
-const ListButton: FC<Props> = ({ isListOpen, handleClick, placeholder }) => {
+const ListButton: FC<Props> = ({
+  isListOpen,
+  selectedValue,
+  handleClick,
+  placeholder,
+}) => {
   return (
     <div className="flex w-full h-10 px-2 mb-2">
       <input
-        className="w-full rounded-l-2xl focus:outline-none shadow px-4 bg-white"
+        className="w-full font-open-sans rounded-l-2xl focus:outline-none shadow px-4 text-yellow-950"
         type="text"
         disabled={true}
+        value={selectedValue}
         placeholder={placeholder}
       />
       <button

@@ -1,13 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import cn from "classnames";
 
-import List from "../List";
+import List from "./List/List";
 
-import { BreedsContext } from "../../store/cat-breeds-context";
+import { BreedsContext } from "../store/cat-breeds-context";
 
-import { useMobileView } from "../../common/hooks/useMobileView";
+import { useMobileView } from "../common/hooks/useMobileView";
 
-import { LOGO } from "../../common/assets";
+import { LOGO } from "../common/assets";
 
 import "./styles.css";
 
@@ -33,7 +33,7 @@ const SideBar = () => {
   return (
     <nav
       className={cn(
-        "relative transition-all ease-in-out duration-500 sm:h-screen border-r bg-orange-50 shadow-lg sm:w-0 w-full sm:p-2 space-y-6",
+        "relative transition-all ease-in-out duration-500 sm:h-screen border-r bg-orange-50 shadow-lg sm:w-0 w-full sm:p-2 space-y-4",
         "lg:flex-grow-0 lg:flex-shrink-0 lg:w-20 xxl:w-64 overflow-hidden",
         {
           active: isOpen,

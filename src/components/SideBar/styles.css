@@ -1,7 +1,0 @@
-nav.active {
-  @apply w-full sm:w-60;
-}
-
-div.sidebar-content.active, .title.active {
-  @apply opacity-100;
-}
