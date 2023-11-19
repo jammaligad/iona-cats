@@ -22,8 +22,7 @@ const ListButton: FC<Props> = ({
         className="w-full font-open-sans rounded-l-2xl focus:outline-none shadow px-4 text-yellow-950"
         type="text"
         disabled={true}
-        value={selectedValue}
-        placeholder={placeholder}
+        placeholder={selectedValue ?? placeholder}
       />
       <button
         className="rounded-r-2xl w-16 flex justify-center items-center shadow bg-orange-100"
