@@ -8,8 +8,9 @@ import { BreedsContext } from "../store/cat-breeds-context";
 
 import { BREEDS_ENDPOINT } from "../common/endpoints";
 
-import "./index.css";
 import { BreedData } from "../types";
+
+import "./index.css";
 
 function App() {
   const { data, isLoading } = useAxios(
