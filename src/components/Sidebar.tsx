@@ -16,8 +16,6 @@ const SideBar = () => {
   const isMobile = useMobileView();
   const [isOpen, setIsOpen] = useState(true);
 
-  // @TODO: handle `isLoading` state from context
-
   useEffect(() => {
     setIsOpen(true);
   }, [isMobile]);
