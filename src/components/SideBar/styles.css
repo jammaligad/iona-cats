@@ -1,5 +1,5 @@
 nav.active {
-  @apply w-60;
+  @apply w-full sm:w-60;
 }
 
 div.sidebar-content.active, .title.active {

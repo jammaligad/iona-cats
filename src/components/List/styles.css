@@ -1,0 +1,3 @@
+div.list-items.active {
+  @apply fixed sm:relative h-full pb-24;
+}
