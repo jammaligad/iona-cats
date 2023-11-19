@@ -5,7 +5,7 @@ import List from "../List";
 
 import { BreedsContext } from "../../store/cat-breeds-context";
 
-import logo from "/favicon/android-chrome-192x192.png";
+import { LOGO } from "../../common/assets";
 
 import "./styles.css";
 
@@ -32,7 +32,10 @@ const SideBar = () => {
           })}
           onClick={() => setIsOpen(!isOpen)}
         >
-          <img className="w-12 drop-shadow hover:drop-shadow-lg" src={logo} />
+          <img
+            className="w-12 drop-shadow hover:drop-shadow-lg"
+            src={LOGO.MEDIUM}
+          />
         </button>
         <span
           className={cn(

@@ -1,8 +1,10 @@
 import { FC } from "react";
 
+import { LOGO } from "../../common/assets";
+
 import { BreedData as Props } from "../../types";
 
-import catEmoji from "/public/favicon/android-chrome-192x192.png";
+const placeholderImg = LOGO.MEDIUM;
 
 export const ListItem: FC<Props> = ({ id, name, image }) => {
   return (
@@ -10,7 +12,7 @@ export const ListItem: FC<Props> = ({ id, name, image }) => {
       <div className="w-6 h-6 drop-shadow">
         <img
           className="w-full h-full rounded-full"
-          src={image?.url || catEmoji} // use placeholder image if url is broken
+          src={image?.url || placeholderImg} // use placeholder image if url is broken
           alt={id}
         />
       </div>
