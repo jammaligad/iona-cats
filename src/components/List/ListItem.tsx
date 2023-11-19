@@ -12,9 +12,16 @@ const placeholderImg = LOGO.MEDIUM;
 
 interface Props extends BreedData {
   isSelected: boolean;
+  handleItemClick: () => void;
 }
 
-export const ListItem: FC<Props> = ({ id, name, image, isSelected }) => {
+export const ListItem: FC<Props> = ({
+  id,
+  name,
+  image,
+  isSelected,
+  handleItemClick,
+}) => {
   return (
     <Link
       to={`/breed/${id}`}
@@ -24,6 +31,7 @@ export const ListItem: FC<Props> = ({ id, name, image, isSelected }) => {
           active: isSelected,
         }
       )}
+      onClick={handleItemClick}
     >
       <div className="w-6 h-6 drop-shadow">
         <img

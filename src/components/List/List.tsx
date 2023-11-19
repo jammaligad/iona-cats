@@ -25,6 +25,8 @@ const List: FC<Props> = ({ items, isLoading, isMobile, placeholder }) => {
   const [filteredListItems, setFilteredListItems] = useState<BreedData[]>([]);
   const { id: paramID } = useParams();
 
+  const activeValueText = items?.find(({ id }) => paramID === id)?.name;
+
   const handleFilterItems = (e: ChangeEvent<HTMLInputElement>) => {
     const searchValue = e.target.value;
     setActiveSearchValue(searchValue);
@@ -34,6 +36,10 @@ const List: FC<Props> = ({ items, isLoading, isMobile, placeholder }) => {
     });
 
     setFilteredListItems(filteredListItems);
+  };
+
+  const handleItemClick = () => {
+    setIsOpen(false);
   };
 
   const renderListItems = () => {
@@ -58,6 +64,7 @@ const List: FC<Props> = ({ items, isLoading, isMobile, placeholder }) => {
         name,
         image,
         isSelected: paramID === id,
+        handleItemClick,
       };
 
       return <ListItem key={id} {...listItemProps} />;
@@ -69,7 +76,7 @@ const List: FC<Props> = ({ items, isLoading, isMobile, placeholder }) => {
       {isMobile ? (
         <ListButton
           isListOpen={isOpen}
-          selectedValue={paramID}
+          selectedValue={activeValueText}
           placeholder={placeholder}
           handleClick={() => setIsOpen(!isOpen)}
         />
