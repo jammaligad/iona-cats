@@ -11,7 +11,7 @@ import { BREEDS_ENDPOINT } from "../common/endpoints";
 import "./index.css";
 
 function App() {
-  const { data, error, isLoading } = useAxios(
+  const { data, isLoading } = useAxios(
     BREEDS_ENDPOINT.url,
     BREEDS_ENDPOINT.method
   );

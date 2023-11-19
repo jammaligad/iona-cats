@@ -1,12 +1,19 @@
-import { useState } from "react";
+import { ChangeEvent, FC, useState } from "react";
 
 import { ListItem } from "./ListItem";
 
-const List = ({ items, placeholder }) => {
-  const [activeSearchValue, setActiveSearchValue] = useState();
-  const [filteredListItems, setFilteredListItems] = useState([]);
+import { BreedData } from "../../types";
 
-  const handleFilterItems = (e) => {
+interface Props {
+  items: BreedData[];
+  placeholder?: string;
+}
+
+const List: FC<Props> = ({ items, placeholder }) => {
+  const [activeSearchValue, setActiveSearchValue] = useState<string>();
+  const [filteredListItems, setFilteredListItems] = useState<BreedData[]>([]);
+
+  const handleFilterItems = (e: ChangeEvent<HTMLInputElement>) => {
     const searchValue = e.target.value;
     setActiveSearchValue(searchValue);
 
@@ -36,7 +43,7 @@ const List = ({ items, placeholder }) => {
   };
 
   return (
-    <div className="w-full h-full space-y-2">
+    <div className="w-full h-full space-y-6">
       <input
         className="rounded-xl w-full h-10 px-4 focus:outline-none shadow"
         type="text"

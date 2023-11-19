@@ -10,13 +10,15 @@ import logo from "/favicon/android-chrome-192x192.png";
 import "./styles.css";
 
 const SideBar = () => {
-  const { isLoading, catBreeds } = useContext(BreedsContext);
+  const { catBreeds } = useContext(BreedsContext);
   const [isOpen, setIsOpen] = useState(true);
+
+  // @TODO: handle `isLoading` state from context
 
   return (
     <nav
       className={cn(
-        "relative transition-all ease-in-out duration-500 h-screen border-r bg-orange-50 shadow-lg w-0 p-2 space-y-2",
+        "relative transition-all ease-in-out duration-500 h-screen border-r bg-orange-50 shadow-lg w-0 p-2 space-y-6",
         "lg:flex-grow-0 lg:flex-shrink-0 lg:w-20 xxl:w-64 overflow-hidden",
         {
           active: isOpen,
@@ -46,7 +48,7 @@ const SideBar = () => {
 
       <div
         className={cn(
-          "sidebar-content flex flex-col h-full lg:opacity-0 transition-all ease-in-out duration-500",
+          "sidebar-content flex flex-col h-5/6 lg:opacity-0 transition-all ease-in-out duration-500",
           {
             active: isOpen,
           }
