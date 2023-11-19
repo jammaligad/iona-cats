@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const SIZES = {
-  TABLET: 768,
+  TABLET: 640,
   MOBILE_L: 425,
   MOBILE_M: 375,
   MOBILE_S: 320,

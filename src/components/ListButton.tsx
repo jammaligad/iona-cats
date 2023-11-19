@@ -1,7 +1,7 @@
 import { FC } from "react";
 import cn from "classnames";
 
-import { ChevronDown } from "react-feather";
+import { ChevronUp } from "react-feather";
 
 import { BreedData } from "../types";
 
@@ -22,10 +22,10 @@ const ListButton: FC<Props> = ({ isListOpen, handleClick, placeholder }) => {
         placeholder={placeholder}
       />
       <button
-        className="rounded-r-2xl w-16 flex justify-center items-center shadow text-yellow-950"
+        className="rounded-r-2xl w-16 flex justify-center items-center shadow bg-orange-100"
         onClick={handleClick}
       >
-        <ChevronDown
+        <ChevronUp
           size="26"
           className={cn("transition-transform delay-150", {
             "rotate-180": !isListOpen,
