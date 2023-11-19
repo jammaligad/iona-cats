@@ -36,8 +36,11 @@ const List: FC<Props> = ({ items, isLoading, isMobile, placeholder }) => {
 
   const renderListItems = () => {
     if (isLoading) {
-      return [...Array(DEFAULT_NUM_ITEMS).keys()].map(() => (
-        <Placeholder type={PlaceholderTypes.LIST_ITEM} />
+      return [...Array(DEFAULT_NUM_ITEMS).keys()].map((index) => (
+        <Placeholder
+          key={`placeholder-${index}`}
+          type={PlaceholderTypes.LIST_ITEM}
+        />
       ));
     }
 
