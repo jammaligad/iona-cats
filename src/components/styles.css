@@ -11,6 +11,6 @@ div.list-items.active {
   @apply fixed sm:relative h-full pb-24;
 }
 
-div.sidebar-list-item.active {
+.sidebar-list-item.active {
   @apply sm:bg-orange-200;
 }
