@@ -3,6 +3,11 @@ export enum RequestMethods {
   POST = "post",
 }
 
+export enum PlaceholderTypes {
+  LIST_ITEM = "list-item",
+  CARD = "card",
+}
+
 export interface BreedsContextValues {
   isLoading: boolean;
   catBreeds?: Record<string, never>[];

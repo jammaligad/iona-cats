@@ -12,7 +12,7 @@ import { LOGO } from "../../common/assets";
 import "./styles.css";
 
 const SideBar = () => {
-  const { catBreeds } = useContext(BreedsContext);
+  const { catBreeds, isLoading } = useContext(BreedsContext);
   const isMobile = useMobileView();
   const [isOpen, setIsOpen] = useState(true);
 
@@ -75,6 +75,7 @@ const SideBar = () => {
         <List
           placeholder="Look up breeds ..."
           items={catBreeds}
+          isLoading={isLoading}
           isMobile={isMobile}
         />
       </div>

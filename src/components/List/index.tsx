@@ -2,20 +2,23 @@ import { ChangeEvent, FC, useState } from "react";
 import cn from "classnames";
 
 import ListButton from "../ListButton";
-
 import { ListItem } from "./ListItem";
+import Placeholder from "../Placeholder";
 
-import { BreedData } from "../../types";
+import { BreedData, PlaceholderTypes } from "../../types";
 
 import "./styles.css";
 
 interface Props {
   items: BreedData[];
+  isLoading: boolean;
   isMobile: boolean;
   placeholder?: string;
 }
 
-const List: FC<Props> = ({ items, isMobile, placeholder }) => {
+const DEFAULT_NUM_ITEMS = 20;
+
+const List: FC<Props> = ({ items, isLoading, isMobile, placeholder }) => {
   const [isOpen, setIsOpen] = useState(true);
   const [activeSearchValue, setActiveSearchValue] = useState<string>();
   const [filteredListItems, setFilteredListItems] = useState<BreedData[]>([]);
@@ -32,6 +35,12 @@ const List: FC<Props> = ({ items, isMobile, placeholder }) => {
   };
 
   const renderListItems = () => {
+    if (isLoading) {
+      return [...Array(DEFAULT_NUM_ITEMS).keys()].map(() => (
+        <Placeholder type={PlaceholderTypes.LIST_ITEM} />
+      ));
+    }
+
     let listItems = [...items];
 
     if (activeSearchValue) {
