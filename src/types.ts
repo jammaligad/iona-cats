@@ -23,3 +23,12 @@ export interface BreedData {
   name: string;
   image: BreedImage;
 }
+
+export interface BreedDetails {
+  id: string;
+  name: string;
+  origin: string;
+  temperament: string;
+  description: string;
+  imageUrl: string;
+}

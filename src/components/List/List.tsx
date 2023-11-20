@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import cn from "classnames";
 
 import ListButton from "./ListButton";
-import { ListItem } from "./ListItem";
+import ListItem from "./ListItem";
 import Placeholder from "../Placeholder";
 
 import { BreedData, PlaceholderTypes } from "../../types";
@@ -72,7 +72,7 @@ const List: FC<Props> = ({ items, isLoading, isMobile, placeholder }) => {
   };
 
   return (
-    <div className="w-full h-full sm:space-y-6 sm:relative fixed">
+    <div className="cat-list w-full h-full sm:space-y-6 sm:relative absolute z-20">
       {isMobile ? (
         <ListButton
           isListOpen={isOpen}
@@ -91,7 +91,7 @@ const List: FC<Props> = ({ items, isLoading, isMobile, placeholder }) => {
       <div
         className={cn(
           "list-items fixed w-full overflow-y-auto sm:h-full h-0 space-y-1 sm:relative sm:pb-0 bg-orange-50",
-          "transition-all ease-in-out duration-500",
+          "transition-all ease-in-out duration-100",
           "flex-grow-0 flex-shrink-0 overflow-hidden",
           {
             "sm:relative": !isOpen,

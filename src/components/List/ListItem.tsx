@@ -15,7 +15,7 @@ interface Props extends BreedData {
   handleItemClick: () => void;
 }
 
-export const ListItem: FC<Props> = ({
+const ListItem: FC<Props> = ({
   id,
   name,
   image,
@@ -44,3 +44,5 @@ export const ListItem: FC<Props> = ({
     </Link>
   );
 };
+
+export default ListItem;

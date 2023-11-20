@@ -1,7 +1,7 @@
 const Dashboard = () => {
   return (
-    <div className="flex w-full h-screen p-4">
-      <div className="m-auto text-center h-4/6 space-y-4">
+    <div className="flex w-full h-screen p-4 sm:ml-64">
+      <div className="m-auto text-center h-1/2 sm:4/6 space-y-4">
         <h1 className="sm:text-3xl text-2xl font-pacifico">
           Welcome to the Cat Browser!
         </h1>

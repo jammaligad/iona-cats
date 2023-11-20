@@ -5,28 +5,30 @@ import List from "./List/List";
 
 import { BreedsContext } from "../store/cat-breeds-context";
 
-import { useMobileView } from "../common/hooks/useMobileView";
+import { useResponsive } from "../common/hooks/useResponsive";
 
 import { LOGO } from "../common/assets";
 
 import "./styles.css";
+import { Link } from "react-router-dom";
 
 const SideBar = () => {
   const { catBreeds, isLoading } = useContext(BreedsContext);
-  const isMobile = useMobileView();
+  const { isMobile } = useResponsive();
   const [isOpen, setIsOpen] = useState(true);
 
   useEffect(() => {
     setIsOpen(true);
   }, [isMobile]);
 
-  const handleActiveState = () => {
-    if (isMobile) {
-      return;
-    }
+  // @TODO: Improve this in the future, will ignore this for now
+  // const handleActiveState = () => {
+  //   if (isMobile) {
+  //     return;
+  //   }
 
-    setIsOpen(!isOpen);
-  };
+  //   setIsOpen(!isOpen);
+  // };
 
   return (
     <nav
@@ -39,17 +41,18 @@ const SideBar = () => {
       )}
     >
       <header className="w-full flex sm:flex-col flex-row space-y-2 sm:space-x-0 space-x-2 sm:justify-normal justify-center pt-4 sm:pt-0">
-        <button
-          className={cn("logo-btn sm:m-auto items-center", {
-            active: isOpen,
-          })}
-          onClick={handleActiveState}
-        >
-          <img
-            className="w-12 drop-shadow hover:drop-shadow-lg"
-            src={LOGO.MEDIUM}
-          />
-        </button>
+        <Link to="/" className="sm:m-auto items-center">
+          <button
+            className={cn("logo-btn sm:m-auto items-center", {
+              active: isOpen,
+            })}
+          >
+            <img
+              className="w-12 drop-shadow hover:drop-shadow-lg"
+              src={LOGO.MEDIUM}
+            />
+          </button>
+        </Link>
         <span
           className={cn(
             "title drop-shadow text-center text-2xl font-pacifico text-yellow-950 whitespace-nowrap lg:opacity-0 transition-all ease-in-out duration-200",
@@ -64,7 +67,7 @@ const SideBar = () => {
 
       <div
         className={cn(
-          "sidebar-content flex flex-col sm:h-5/6 lg:opacity-0 transition-all ease-in-out duration-500",
+          "sidebar-content flex flex-col sm:h-5/6 lg:opacity-0 lg:collapse transition-all ease-in-out duration-500",
           {
             active: isOpen,
           }
