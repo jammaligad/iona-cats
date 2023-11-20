@@ -4,8 +4,21 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  safelist: [
+    {
+      pattern: /grid-cols-./,
+    }
+  ],
   theme: {
-    extend: {},
+    extend: {
+      transitionProperty: {
+        'width': 'width'
+      },
+    },
+    fontFamily: {
+      'open-sans': ['Open Sans', 'sans-serif'],
+      pacifico: ['Pacifico', 'cursive']
+    },
   },
   plugins: [],
 }
