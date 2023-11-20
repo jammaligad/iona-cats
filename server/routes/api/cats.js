@@ -53,4 +53,23 @@ export function catsApi(app) {
       });
     }
   });
+
+  app.post("/api/cats/cat-details", async (req, res) => {
+    const { catID } = req.body
+
+    try {
+      const apiResponse = await axios({
+        url: `/images/${catID}`,
+        method: "get",
+        ...commonConfig,
+      });
+
+      res.json(apiResponse.data)
+    } catch (err) {
+      return res.status(400).send({
+        status: "fail",
+        message: err.message,
+      });
+    }
+  })
 }

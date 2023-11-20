@@ -75,17 +75,20 @@ const BreedPage = () => {
                   temperament,
                   description,
                   imageUrl,
-                }: BreedDetails) => (
-                  <Card
-                    key={id}
-                    id={id}
-                    breed={name}
-                    origin={origin}
-                    temperament={temperament}
-                    description={description}
-                    imageUrl={imageUrl}
-                  />
-                )
+                }: BreedDetails) => {
+                  return (
+                    <Card
+                      key={id}
+                      id={id}
+                      breed={name}
+                      origin={origin}
+                      temperament={temperament}
+                      description={description}
+                      imageUrl={imageUrl}
+                      redirectUrl={`/cat-details/${id}`}
+                    />
+                  );
+                }
               )}
             </div>
           );
@@ -107,10 +110,9 @@ const BreedPage = () => {
       ) : (
         renderCatsData()
       )}
-      <div className="h-8"></div>
 
       {!isLastPage && !shouldRenderLoader && (
-        <div className="mt-auto sm:w-40 w-full rounded-2xl shadow-lg bg-orange-50 mx-auto sm:mb-8 mb-0 font-semibold text-yellow-950 transition ease-in-out duration-200 hover:-translate-y-1 hover:bg-orange-100">
+        <div className="mt-auto sm:w-40 w-full rounded-2xl sm:shadow-lg sm:bg-orange-50 mx-auto sm:mb-8 mb-0 font-semibold text-yellow-950 transition ease-in-out duration-200 sm:hover:-translate-y-1 sm:hover:bg-orange-100">
           <button
             className="h-20 w-full text-lg flex items-center justify-center space-x-2"
             onClick={nextPage}
