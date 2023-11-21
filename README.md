@@ -12,6 +12,8 @@
 ```
 // below are the required variables that the .env should have
 CATS_API_BASE_URL=https://api.thecatapi.com/v1
+
+// get your live API key from https://thecatapi.com
 CATS_API_PRODUCTION_KEY=<insert cats api key here>
 
 // DISCLAIMER: for Mac Apple Silicon users, you need to either disable Airplay receiver to use this port or change this SERVER_PORT value to another port
