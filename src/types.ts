@@ -8,6 +8,11 @@ export enum PlaceholderTypes {
   CARD = "card",
 }
 
+export enum CatLoaderSizes {
+  SMALL = "small",
+  LARGE = "large",
+}
+
 export interface BreedsContextValues {
   isLoading: boolean;
   catBreeds?: Record<string, never>[];

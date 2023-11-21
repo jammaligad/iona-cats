@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { Link } from "react-router-dom";
 import cn from "classnames";
 
@@ -22,6 +22,16 @@ const ListItem: FC<Props> = ({
   isSelected,
   handleItemClick,
 }) => {
+  const [imgLoading, setImgLoading] = useState(true);
+
+  const handleImageLoading = () => {
+    setImgLoading(true);
+  };
+
+  const handleImageLoaded = () => {
+    setImgLoading(false);
+  };
+
   return (
     <Link
       to={`/breed/${id}`}
@@ -38,7 +48,16 @@ const ListItem: FC<Props> = ({
           className="w-full h-full rounded-full"
           src={image?.url || placeholderImg} // use placeholder image if url is broken
           alt={id}
+          onLoadStart={handleImageLoading}
+          onLoad={handleImageLoaded}
         />
+        {imgLoading && (
+          <img
+            className="w-full h-full rounded-full"
+            src={placeholderImg}
+            alt={id}
+          />
+        )}
       </div>
       <p className="font-open-sans text-yellow-950">{name}</p>
     </Link>
