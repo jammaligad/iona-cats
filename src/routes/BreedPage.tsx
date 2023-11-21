@@ -60,7 +60,7 @@ const BreedPage = () => {
     return (
       <div
         className={cn(
-          "grid sm:gap-10 gap-6 mx-auto sm:mt-8 mt-40 auto-rows-min",
+          "grid sm:gap-10 gap-6 mx-auto sm:mt-8 mt-40 auto-rows-min max-w-screen-2xl",
           `grid-cols-${columns}`
         )}
       >
