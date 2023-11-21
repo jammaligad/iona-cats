@@ -1,4 +1,5 @@
 import { Outlet } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 import SideBar from "../components/Sidebar";
 
@@ -22,6 +23,7 @@ function App() {
   return (
     <BreedsContext.Provider value={{ isLoading, catBreeds: catBreeds || [] }}>
       <main className="app-container">
+        <Toaster position="bottom-right" reverseOrder={false} />
         <SideBar />
 
         <Outlet />
