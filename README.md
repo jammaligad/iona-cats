@@ -3,12 +3,39 @@
 - IONA's coding exercise using ReactJS
 - Developed by Juan Alphonso D. Maligad
 
+## How to run
+
+- use `yarn` to install packages
+- create `.env` file in root folder
+
+```
+// below are the required variables that the .env should have
+CATS_API_BASE_URL=https://api.thecatapi.com/v1
+CATS_API_PRODUCTION_KEY=<insert cats api key here>
+SERVER_PORT=5000
+FRONTEND_PORT=8080
+VITE_BASE_URL=http://127.0.0.1:5000 // since we're using node v18, there's an issue with using localhost for the proxy settings in vite config, using 127.0.0.1 would fix it
+```
+
+- run command `yarn dev`
+
 ## Technologies
 
 - ReactJS (Typescript)
 - `react-router-dom`
 - `axios`
 - `tailwindcss`
+
+## Developer's Notes
+
+#### Deadline
+
+- Project Start Date: `17-NOV-2023` (Friday)
+- Indicated Deadline/Submission: `21-NOV-2023` (Tuesday)
+
+#### Notes
+
+- I decided to create a proxy server under the `server`folder in the root directory, this is where Cat API requests will be handled. In a real dev scenario, I believe this is good as it would hide the necessary production API keys needed for the API requests as suppose to handling the request via client side.
 
 ## Instructions
 
