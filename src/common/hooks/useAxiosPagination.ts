@@ -1,9 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
 import axios from "axios";
 
-import { RequestMethods } from "../../types";
 import { groupFormat } from "../utils/groupFormat";
+import { DEFAULT_ERROR_MESSAGE } from "../constants";
+
+import { RequestMethods } from "../../types";
 
 const extractNewHits = (
   prevData: Record<string, any>[],
@@ -23,7 +26,7 @@ const useAxiosPagination = (
   payload?: Record<string, any>
 ) => {
   const [data, setData] = useState<Record<string, any>[]>([]);
-  const [error, setError] = useState<string>();
+  const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isLastPage, setIsLastPage] = useState(false);
   const [page, setPage] = useState(1);
@@ -66,13 +69,20 @@ const useAxiosPagination = (
             return [...groupFormat([...prevData.flat(), ...newHits])];
           });
         }
+
+        toast.dismiss();
+        setError(null);
       } catch (err) {
         // handle error message
+        toast.dismiss();
+
         if (typeof err === "string") {
           setError(err);
         } else if (err instanceof Error) {
           setError(err.message);
         }
+
+        toast.error(DEFAULT_ERROR_MESSAGE);
       } finally {
         setIsLoading(false);
       }
