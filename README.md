@@ -12,10 +12,17 @@
 ```
 // below are the required variables that the .env should have
 CATS_API_BASE_URL=https://api.thecatapi.com/v1
+
+// get your live API key from https://thecatapi.com
 CATS_API_PRODUCTION_KEY=<insert cats api key here>
+
+// DISCLAIMER: for Mac Apple Silicon users, you need to either disable Airplay receiver to use this port or change this SERVER_PORT value to another port
 SERVER_PORT=5000
+
 FRONTEND_PORT=8080
-VITE_BASE_URL=http://127.0.0.1:5000 // since we're using node v18, there's an issue with using localhost for the proxy settings in vite config, using 127.0.0.1 would fix it
+
+// since we're using node v18, there's an issue with using localhost for the proxy settings in vite config, using 127.0.0.1 would fix it
+VITE_BASE_URL=http://127.0.0.1:5000
 ```
 
 - run command `yarn dev`
