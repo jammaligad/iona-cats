@@ -5,6 +5,7 @@
 
 ## How to run
 
+- use node version indicated in `.nvmrc`
 - use `yarn` to install packages
 - create `.env` file in root folder
 
