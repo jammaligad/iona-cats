@@ -1,4 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
+import { useState } from "react";
 import useAxios from "../common/hooks/useAxios";
 import { ArrowLeft } from "react-feather";
 import cn from "classnames";
@@ -11,6 +12,8 @@ import { useUnmountTransition } from "../common/hooks/useUnmountTransition";
 import { CAT_DETAILS_ENDPOINT } from "../common/endpoints";
 import { extractCatDetails } from "../common/utils/extractCatDetails";
 
+import { CatLoaderSizes } from "../types";
+
 const CatDetails = () => {
   const { id: catID } = useParams();
   const navigate = useNavigate();
@@ -22,6 +25,16 @@ const CatDetails = () => {
       catID,
     }
   );
+
+  const [imgLoading, setImgLoading] = useState(true);
+
+  const handleImageLoading = () => {
+    setImgLoading(true);
+  };
+
+  const handleImageLoaded = () => {
+    setImgLoading(false);
+  };
 
   const catData = extractCatDetails(data);
   const shouldRenderLoader = useUnmountTransition(isLoading, 500);
@@ -56,7 +69,21 @@ const CatDetails = () => {
             <p className="font-semibold text-lg text-center py-4">
               {catData?.name}
             </p>
-            <img src={catData?.imageUrl} />
+            <img
+              className={cn({
+                hidden: imgLoading,
+                block: !imgLoading,
+              })}
+              src={catData?.imageUrl}
+              onLoadStart={handleImageLoading}
+              onLoad={handleImageLoaded}
+            />
+            {imgLoading && (
+              <div className="flex xl:w-96 xl:h-72 lg:w-52 lg:h-48 sm:w-52 sm:h-26 pt-8 m-auto justify-center">
+                {" "}
+                <CatLoader size={CatLoaderSizes.SMALL} />
+              </div>
+            )}
             <p className="pl-2 m-2">Origin: {catData?.origin}</p>
             <div className="flex flex-wrap m-2">
               {catData?.temperaments?.map((temperament: string) => (
