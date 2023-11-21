@@ -1,11 +1,19 @@
 import { FC } from "react";
 import cn from "classnames";
 
+import { CatLoaderSizes } from "../types";
+
+import "./styles.css";
+
 interface Props {
-  containerClass: string;
+  size?: CatLoaderSizes;
+  containerClass?: string;
 }
 
-const CatLoader: FC<Props> = ({ containerClass }) => {
+const CatLoader: FC<Props> = ({
+  size = CatLoaderSizes.LARGE,
+  containerClass,
+}) => {
   return (
     <div
       className={cn(
@@ -15,7 +23,10 @@ const CatLoader: FC<Props> = ({ containerClass }) => {
     >
       <div
         id="cat-head"
-        className="relative lg:w-96 lg:h-72 w-48 h-36 rounded-full animate-pulse bg-orange-200"
+        className={cn(
+          "cat-head relative rounded-full animate-pulse bg-orange-200",
+          size
+        )}
       >
         <div
           id="cat-ears"

@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import cn from "classnames";
 
 import List from "./List/List";
@@ -10,7 +11,6 @@ import { useResponsive } from "../common/hooks/useResponsive";
 import { LOGO } from "../common/assets";
 
 import "./styles.css";
-import { Link } from "react-router-dom";
 
 const SideBar = () => {
   const { catBreeds, isLoading } = useContext(BreedsContext);

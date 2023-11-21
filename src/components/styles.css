@@ -14,3 +14,11 @@ div.list-items.active {
 .sidebar-list-item.active {
   @apply sm:bg-orange-200;
 }
+
+div.cat-head.small {
+  @apply xl:w-64 xl:h-48 lg:w-48 lg:h-32 w-40 h-28
+}
+
+div.cat-head.large {
+  @apply lg:w-96 lg:h-72 w-48 h-36
+}
