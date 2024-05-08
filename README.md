@@ -61,6 +61,8 @@ VITE_BASE_URL=http://127.0.0.1:5000
 
 ## Evaluation Criteria
 
+Sample Demo: https://grumpy.iona.dev/?breed=abys
+
 ```
 1. Does it work according to the specifications?
 Your code should support the specifications written above.
